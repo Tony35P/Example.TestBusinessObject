@@ -21,7 +21,7 @@ namespace Tony.Blog.Services
         {
             if(dao.IsExist(categoryName))
             {
-                throw new Exception("相同的名稱已存在");
+                throw new Exception("相同的名稱已存在!");
             }
             dao.Create(categoryName);
         }
