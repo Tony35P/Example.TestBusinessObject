@@ -1,14 +1,24 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dapper;
 
-
-namespace Tony.Blog.Services
+namespace ConsoleApp1
 {
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string connString = @"Data Source=.\SQL2019;Initial Catalog=dbBlog;Persist Security Info=True;user id=sa5;password=sa5";
+            string categoryName = "Health456";
+
+            var service = new CategoryService(connString);
+            service.Create(categoryName);
+        }
+    }
     public class CategoryService
     {
         private string connString;
@@ -34,6 +44,4 @@ namespace Tony.Blog.Services
             }
         }
     }
-
-    
 }
